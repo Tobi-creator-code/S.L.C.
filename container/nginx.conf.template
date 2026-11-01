@@ -1,0 +1,68 @@
+worker_processes 1;
+pid /tmp/nginx.pid;
+error_log /dev/stderr warn;
+
+events { worker_connections 512; }
+
+http {
+  include /etc/nginx/mime.types;
+  default_type application/octet-stream;
+  access_log off;
+  server_tokens off;
+  sendfile on;
+  client_max_body_size 8m;
+
+  limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
+
+  # The visitor's real address (for the login limits). Vercel puts it in X-Vercel-Forwarded-For
+  # (visitors cannot fake that one); if it is missing, the first address in X-Forwarded-For is used.
+  map $http_x_forwarded_for $slc_xff_first {
+    "~^\s*(?<xip>[^,\s]+)" $xip;
+    default $remote_addr;
+  }
+  map $http_x_vercel_forwarded_for $slc_ip {
+    ""      $slc_xff_first;
+    default $http_x_vercel_forwarded_for;
+  }
+
+  server {
+    listen ${PORT};
+    root /var/www/html;
+    index index.html;
+
+    # A simple "is it running" address.
+    location = /healthz { access_log off; default_type text/plain; return 200 "ok"; }
+
+    location / { try_files $uri $uri/ =404; }
+
+    # Never serve hidden files, source folders, or helper/config files.
+    location ~ /\.            { deny all; }
+    location ~ ^/(database|docker|realtime|ocr|scripts|tools|partials|pages|backups|container|slc-admin)/ { deny all; }
+    location ~ \.(md|sql|yml|yaml|env|sh|py|ts|conf|template)$ { deny all; }
+    location ~ ^/(Dockerfile|Containerfile)(\.vercel)?$ { deny all; }
+
+    # Only these endpoints can run PHP.
+    location ~ ^/api/(ads|sellers|search|track|login|register|logout|me|verify_id|submit_ad|pay_start|pay_status|pay_webhook|realtime_token|admin_login|admin_register|admin_users|admin_ads)\.php$ {
+      limit_req zone=api burst=20 nodelay;
+      include fastcgi_params;
+      fastcgi_pass 127.0.0.1:9000;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      fastcgi_param REMOTE_ADDR $slc_ip;
+      fastcgi_param HTTP_X_FORWARDED_PROTO $http_x_forwarded_proto;
+      fastcgi_read_timeout 60s;
+    }
+    location /api/ { return 404; }
+
+    location ~* \.(css|js|woff2?|svg|png|jpg|webp|ico)$ {
+      expires 1h;
+      add_header Cache-Control "public";
+      add_header X-Content-Type-Options "nosniff" always;
+    }
+
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "camera=(self), microphone=(self), geolocation=()" always;
+  }
+}

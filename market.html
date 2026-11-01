@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SLC Ads Market | SLC - School Let's Chat</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/poppins-bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/market.css">
+<link rel="preload" href="images/logo.png" as="image">
+<style>
+#slcLoader{display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:var(--bg,#eef2f8);color:var(--text,#0c1a2e);visibility:visible;opacity:1;transition:opacity .35s ease}
+html.slc-splash #slcLoader{display:flex}
+html.slc-loaded #slcLoader{opacity:0;pointer-events:none}
+#slcLoader .slcl-mark{position:relative;width:104px;height:104px;display:grid;place-items:center}
+#slcLoader .slcl-mark img{width:84px;height:84px;border-radius:50%;display:block;animation:slclPulse 1.8s ease-in-out infinite}
+#slcLoader .slcl-ring{position:absolute;inset:0;border-radius:50%;border:3px solid var(--line,#d5deec);border-top-color:#2f6df6;animation:slclSpin .9s linear infinite}
+#slcLoader .slcl-name{margin:0;font:600 18px/1.2 var(--font-display,system-ui,sans-serif);letter-spacing:.02em}
+#slcLoader .slcl-sub{margin:-10px 0 0;font-size:14px;color:var(--muted,#566880)}
+@keyframes slclSpin{to{transform:rotate(360deg)}}
+@keyframes slclPulse{0%,100%{transform:scale(1)}50%{transform:scale(.94)}}
+@media (prefers-reduced-motion:reduce){#slcLoader .slcl-ring{animation-duration:2.4s}#slcLoader .slcl-mark img{animation:none}}
+</style>
+<noscript><style>#slcLoader{display:none!important}</style></noscript>
+<script>(function(){var h=document.documentElement,MIN_MS=700,t0=Date.now(),shown=0;try{if(!sessionStorage.getItem("slc-splashed")){shown=1;h.classList.add("slc-splash");sessionStorage.setItem("slc-splashed","1")}}catch(e){}
+if(!shown)return;var gone=0;function hide(){if(gone)return;gone=1;h.classList.add("slc-loaded");setTimeout(function(){h.classList.remove("slc-splash","slc-loaded")},450)}
+function ready(){setTimeout(hide,Math.max(0,MIN_MS-(Date.now()-t0)))}
+if(document.readyState==="complete")ready();else addEventListener("load",ready);setTimeout(hide,8000)})();</script>
+<script>(function(){var d=document.documentElement;d.style.visibility="hidden";fetch("api/me.php",{credentials:"same-origin",cache:"no-store"}).then(function(r){if(r.status===401){location.replace("login.html");return}d.style.visibility=""}).catch(function(){d.style.visibility=""})})()</script>
+</head>
+<body data-page="market">
+<div id="slcLoader" role="status" aria-live="polite"><div class="slcl-mark"><div class="slcl-ring" aria-hidden="true"></div><img src="images/logo.png" alt=""></div><p class="slcl-name">School Let's Chat</p><p class="slcl-sub">Loading...</p></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L5 20v-4H4z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol>
+  <symbol id="i-set" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 24 24"><path d="M7 4.5h10v15l-5-3.5-5 3.5z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="19" cy="12" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.6 5.3 3.6 8.5S14.6 18.1 12 20.5C9.4 18.1 8.4 15.2 8.4 12S9.4 5.9 12 3.5z"/></symbol>
+  <symbol id="i-school" viewBox="0 0 24 24"><path d="m3 9 9-4.5L21 9l-9 4.5z"/><path d="M7 11.5v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16.5 14.6c2.3 0 3.6 1.3 4 3.9"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 13v6.5h14V13"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m4.5 17 4.5-4.5 3.5 3.5 3-3 4 4"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3.5" y="6.5" width="12" height="11" rx="2.5"/><path d="m15.5 11 5-3v8l-5-3"/></symbol>
+  <symbol id="i-repost" viewBox="0 0 24 24"><path d="M4 11V9a3 3 0 0 1 3-3h11"/><path d="m15 3 3 3-3 3"/><path d="M20 13v2a3 3 0 0 1-3 3H6"/><path d="m9 21-3-3 3-3"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-4.5 16-3.5-6.5z"/><path d="M12 13.5 20 4"/></symbol>
+  <symbol id="i-apps" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4.5h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5v1.5A3 3 0 0 0 8 10.5M16 6h3v1.5a3 3 0 0 1-3 3"/><path d="M12 13.5V17M8.5 19.5h7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V6M7 11l5-5 5 5"/></symbol>
+  <symbol id="i-uplus" viewBox="0 0 24 24"><circle cx="10" cy="8.5" r="3.5"/><path d="M3.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M19 8v6M16 11h6"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 0 16c1.2 0 1.8-.8 1.8-1.7 0-1-.9-1.3-.9-2.3 0-.9.7-1.5 1.7-1.5H16a4 4 0 0 0 4-4C20 6.9 16.4 4 12 4z"/><circle cx="8" cy="11" r="1"/><circle cx="11" cy="7.8" r="1"/><circle cx="15" cy="8.5" r="1"/></symbol>
+  <symbol id="i-fwd" viewBox="0 0 24 24"><path d="M14 5l7 6.5-7 6.5v-4c-5.5 0-9 1.5-11 5 .5-6 4-10.5 11-11z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4"/></symbol>
+  <symbol id="i-checks" viewBox="0 0 24 24"><path d="m3 12.5 4 4L15 8"/><path d="m10.5 15.5 1 1L20 8"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14a4 4 0 0 0 7 0"/><circle cx="9.3" cy="9.8" r="1" fill="currentColor"/><circle cx="14.7" cy="9.8" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M19 11.5 11.7 18.8a4.5 4.5 0 0 1-6.4-6.4l7.6-7.6a3 3 0 1 1 4.3 4.3l-7.6 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></symbol>
+  <symbol id="i-poll" viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></symbol>
+  <symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 20V4M6 5h11l-2 4 2 4H6"/></symbol>
+  <symbol id="i-exit" viewBox="0 0 24 24"><path d="M10 4.5H5.5v15H10M14 8l4 4-4 4M18 12H9"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/><path d="m3.5 3.5 17 17"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12.5V20h13v-7.5"/><path d="M10 20v-4.5h4V20"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.3a10 10 0 0 0 5.7 5.7l1.3-2 4 1.5v3a2 2 0 0 1-2 2A14.5 14.5 0 0 1 4.5 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4.5h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.3"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
+</svg>
+
+<div class="topbar-m">
+  <img src="images/logo.png" alt="SLC logo">
+  <span class="wm">SLC</span>
+  <button class="mktbtn sm" type="button" data-go="market" aria-label="SLC Ads Market"><svg class="ic sm"><use href="#i-store"/></svg><span class="mtxt">Ads<span class="mx"> Market</span></span></button>
+  <button class="iconbtn" type="button" data-focus-search aria-label="Search"><svg class="ic"><use href="#i-search"/></svg></button>
+  <button class="bell" type="button" data-go="notifs" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg><span class="count" data-bell-count hidden>0</span></button>
+  <button class="iconbtn" type="button" data-go="settings" aria-label="Settings"><svg class="ic"><use href="#i-set"/></svg></button>
+  <button class="iconbtn" type="button" data-theme-toggle aria-label="Switch light or dark theme"><svg class="ic" data-theme-icon><use href="#i-moon"/></svg></button>
+</div>
+
+<div class="app two" id="app">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#" data-go="home">
+      <img src="images/logo.png" alt="SLC logo">
+      <span class="wm">SLC<small>School Let's Chat</small></span>
+    </a>
+    <button class="item" type="button" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span class="label">Home</span></button>
+    <button class="item" type="button" data-focus-search><svg class="ic"><use href="#i-search"/></svg><span class="label">Search</span></button>
+    <button class="item" type="button" data-go="friends"><svg class="ic"><use href="#i-users"/></svg><span class="label">Friends</span></button>
+    <button class="item" type="button" data-go="market"><svg class="ic"><use href="#i-store"/></svg><span class="label">Ads Market</span></button>
+    <button class="item" type="button" data-go="messages"><svg class="ic"><use href="#i-msg"/></svg><span class="label">Messages</span><span class="count" data-msg-count>3</span></button>
+    <button class="item" type="button" data-go="notifs"><svg class="ic"><use href="#i-bell"/></svg><span class="label">Notifications</span><span class="count" data-bell-count hidden>0</span></button>
+    <button class="item" type="button" data-go="profile"><svg class="ic"><use href="#i-user"/></svg><span class="label">Profile</span></button>
+    <button class="item" type="button" data-go="settings"><svg class="ic"><use href="#i-set"/></svg><span class="label">Settings</span></button>
+    <button class="postbtn" type="button" data-focus-composer><svg class="ic"><use href="#i-plus"/></svg><span class="label">Create post</span></button>
+    <div class="navfoot">
+      <button class="themebtn" type="button" data-theme-toggle aria-label="Switch light or dark theme"><svg class="ic" data-theme-icon><use href="#i-moon"/></svg><span class="label" data-theme-label>Dark theme</span></button>
+      <button class="me" type="button" data-go="profile" data-mine><span id="me-av"></span><span class="t">Your profile<small>Year 3</small></span></button>
+    </div>
+  </nav>
+
+  <main class="feed" id="feed">
+    <div class="feed-head">
+      <h1 id="title">Home</h1>
+      <span class="sp"></span>
+      <button class="mktbtn" type="button" data-go="market" aria-label="SLC Ads Market"><svg class="ic sm"><use href="#i-store"/></svg><span>SLC Ads Market</span></button>
+      <button class="bell" type="button" data-go="notifs" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg><span class="count" data-bell-count hidden>0</span></button>
+    </div>
+
+    <section class="view" id="v-market"  aria-labelledby="mk-h">
+      <div class="card mk-hero">
+        <p class="mk-kicker">Students selling to students</p>
+        <h2 id="mk-h">SLC Ads Market</h2>
+        <p class="sub">Browse sellers on campus, or search for what you want to buy.</p>
+        <form id="mkform" class="mk-search" role="search" autocomplete="off">
+          <svg class="ic"><use href="#i-search"/></svg>
+          <label class="sr" for="mkq">Search the ads market</label>
+          <input id="mkq" type="search" placeholder="Search laptops, food, braids" maxlength="60" enterkeyhint="search">
+        </form>
+        <div class="mk-cats" id="mkCats" role="group" aria-label="Categories"></div>
+      </div>
+      <p class="mk-status" id="mkStatus" role="status" aria-live="polite"></p>
+      <div class="mk-sec"><h3>Sellers</h3><span class="mk-count" id="mkSellerCount"></span></div>
+      <div class="mk-sellers" id="mkSellers"></div>
+      <div class="mk-sec"><h3 id="mkAdsTitle">Latest ads</h3><button class="btn sm" type="button" id="mkClear" data-mk-clear>Clear filters</button></div>
+      <div class="mk-grid" id="mkAds"></div>
+      <div class="mk-cta card"><b>Sell something?</b><span>Post your own ad and reach students across campus. Pay by direct bank transfer into SLC's account.</span><button class="btn primary" type="button" data-mk-post>Post an ad</button></div>
+      <p class="note" id="mkNote"></p>
+    </section>
+  </main>
+</div>
+
+<nav class="bottom" aria-label="Main">
+  <button class="bi" type="button" data-go="home"><svg class="ic"><use href="#i-home"/></svg>Home</button>
+  <button class="bi" type="button" data-go="friends"><svg class="ic"><use href="#i-users"/></svg>Friends</button>
+  <button class="bi plus" type="button" data-focus-composer aria-label="Create post"><svg class="ic"><use href="#i-plus"/></svg></button>
+  <button class="bi" type="button" data-go="messages"><svg class="ic"><use href="#i-msg"/></svg>Messages<span class="count" data-msg-count>3</span></button>
+  <button class="bi" type="button" data-go="profile" data-mine><svg class="ic"><use href="#i-user"/></svg>Profile</button>
+</nav>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" hidden>
+  <div id="sheet-body"></div>
+</div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Viewer" hidden></div>
+<div class="mini" id="mini" hidden></div>
+<div class="searchOverlay" id="searchOverlay" hidden role="dialog" aria-modal="true" aria-label="Search">
+  <div class="soHead"><button class="iconbtn" type="button" data-so-close aria-label="Close search"><svg class="ic"><use href="#i-back"/></svg></button>
+    <label class="search" style="flex:1"><svg class="ic"><use href="#i-search"/></svg><span class="sr">Search posts, videos and students</span><input id="qOverlay" type="search" placeholder="Search posts, videos and students" autocomplete="off" maxlength="60"></label></div>
+  <div class="soTabs" id="soTabs" role="group" aria-label="Search in"></div>
+  <div class="soBody" id="resultsOverlay"></div>
+</div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Comments" hidden></div>
+<div class="rpicker" id="rpicker" role="menu" aria-label="Reactions" hidden></div>
+<div class="popup" id="popup" role="status" hidden></div>
+<input type="file" id="fcpic" accept="image/*" hidden>
+<input type="file" id="fstk" accept="image/*" hidden>
+<input type="file" id="fgif" accept="image/gif" hidden>
+<input type="file" id="fdoc" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.zip" hidden>
+<input type="file" id="fpic" accept="image/*" hidden>
+<input type="file" id="fvid" accept="video/*" hidden>
+<input type="file" id="fwp" accept="image/*" hidden>
+<input type="file" id="fcpic2" accept="image/*" hidden>
+<input type="file" id="fid" accept="image/*" capture="environment" hidden>
+
+<script src="js/payment-config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/market.js"></script>
+<script src="js/realtime-config.js"></script>
+<script src="js/realtime.js"></script>
+</body>
+</html>

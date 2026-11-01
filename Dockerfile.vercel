@@ -1,0 +1,26 @@
+# One container for the whole live site: nginx (pages) + PHP-FPM (the /api folder).
+# Built by Vercel (Container runtime) from this file. Nothing else needs to be installed.
+FROM php:8.3-fpm-alpine
+
+RUN apk add --no-cache nginx supervisor gettext libpq libsodium curl-dev \
+ && apk add --no-cache --virtual .build $PHPIZE_DEPS postgresql-dev libsodium-dev \
+ && docker-php-ext-install pdo_pgsql sodium opcache \
+ && pecl install redis apcu \
+ && docker-php-ext-enable redis apcu \
+ && apk del .build
+
+COPY docker/php/php.ini /usr/local/etc/php/conf.d/zz-slc.ini
+COPY container/php-fpm.conf /usr/local/etc/php-fpm.d/zzz-slc.conf
+COPY container/nginx.conf.template /etc/nginx/nginx.conf.template
+COPY container/supervisord.conf /etc/supervisord.conf
+COPY container/session-ini.php /usr/local/bin/slc-session-ini.php
+COPY container/start.sh /usr/local/bin/slc-start
+RUN chmod +x /usr/local/bin/slc-start
+
+COPY . /var/www/html
+RUN chown -R www-data:www-data /var/www/html
+
+# Vercel sends traffic to port 80 unless the project sets a PORT variable.
+ENV PORT=80
+EXPOSE 80
+CMD ["slc-start"]
